@@ -2,10 +2,10 @@
 while true
 do
 	clear
-	gputemp=$( cat /sys/class/drm/card0/device/hwmon/hwmon2/temp1_input )
-	gpucurrentwatts=$( cat /sys/class/drm/card0/device/hwmon/hwmon2/power1_average )
+	gputemp=$( cat /sys/class/drm/card0/device/hwmon/*/temp1_input )
+	gpucurrentwatts=$( cat /sys/class/drm/card0/device/hwmon/*/power1_average )
 	gpumemoryusedpercent=$( cat /sys/class/drm/card0/device/mem_busy_percent )
-	gpufanspeed=$( cat /sys/class/drm/card0/device/hwmon/hwmon2/fan1_input )
+	gpufanspeed=$( cat /sys/class/drm/card0/device/hwmon/*/fan1_input )
 	gpucoreutilizationpercent=$( cat /sys/class/drm/card0/device/gpu_busy_percent )
 	echo "GPU Temperature:"
 	echo $((gputemp / 1000)) "Celcius"
