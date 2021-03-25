@@ -23,7 +23,7 @@ do
 	echo $gpumemoryusedpercent"%"
 	echo ""
 	echo "GPU State:"
-	sudo cat /sys/class/drm/card0/device/pp_dpm_sclk
+	cat /sys/class/drm/card0/device/pp_dpm_sclk
 	sleep 1
 done
 
