@@ -1,0 +1,30 @@
+#!/bin/bash
+while true
+do
+	clear
+	gputemp=$( cat /sys/class/drm/card0/device/hwmon/hwmon2/temp1_input )
+	gpucurrentwatts=$( cat /sys/class/drm/card0/device/hwmon/hwmon2/power1_average )
+	gpumemoryusedpercent=$( cat /sys/class/drm/card0/device/mem_busy_percent )
+	gpufanspeed=$( cat /sys/class/drm/card0/device/hwmon/hwmon2/fan1_input )
+	gpucoreutilizationpercent=$( cat /sys/class/drm/card0/device/gpu_busy_percent )
+	echo "GPU Temperature:"
+	echo $((gputemp / 1000)) "Celcius"
+	echo ""
+	echo "GPU wattage:"
+	echo $((gpucurrentwatts / 1000000)) "watts"
+	echo ""
+	echo "GPU fan speed:"
+	echo $gpufanspeed "RPM"
+	echo ""
+	echo "GPU core utilization:"
+	echo $gpucoreutilizationpercent"%"
+	echo ""
+	echo "GPU memory utilization:"
+	echo $gpumemoryusedpercent"%"
+	echo ""
+	echo "GPU State:"
+	sudo cat /sys/class/drm/card0/device/pp_dpm_sclk
+	sleep 1
+done
+
+#./amdgpuinfo.sh

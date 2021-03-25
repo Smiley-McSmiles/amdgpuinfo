@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Please enter your password to install the script in /bin/"
+sudo cp amdgpuinfo /bin/amdgpuinfo
+sudo chmod +x /bin/amdgpuinfo
+cd ..
+sudo rm -rf amdgpuinfo
+echo "installation complete!"
+echo "Please enter 'amdgpuinfo' to view your GPU information"
+
